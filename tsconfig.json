@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"],
+    "skipLibCheck": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["site/src/*"],
+      "base-components/*": ["components/*"],
+      "components/*": ["site/src/components/*"],
+      "view/*": ["site/src/view/*"],
+      "assets/*": ["site/src/assets/*"],
+    }
+  },
+  "exclude": ["node_modules", "lib", "es", "dist", "**/__tests__/**/*"]
+}

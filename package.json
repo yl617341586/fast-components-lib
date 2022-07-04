@@ -1,0 +1,42 @@
+{
+  "name": "lbg-design",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite serve site",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.2.25",
+    "vue-i18n": "^9.2.0-beta.36",
+    "vue-router": "^4.0.16"
+  },
+  "devDependencies": {
+    "@types/eslint": "^8.4.3",
+    "@types/less": "^3.0.3",
+    "@types/markdown-it": "^12.2.3",
+    "@types/node": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "@typescript-eslint/parser": "^5.28.0",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-typescript": "^9.0.0",
+    "eslint": "^8.17.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.5.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^9.1.1",
+    "globby": "^11.1.0",
+    "gray-matter": "^4.0.3",
+    "less": "^4.1.3",
+    "less-vars-to-js": "^1.3.0",
+    "markdown-it": "^13.0.1",
+    "markdown-it-anchor": "^8.6.4",
+    "markdown-it-toc-done-right": "^4.2.0",
+    "prettier": "^2.7.0",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.9",
+    "vue-tsc": "^0.34.7"
+  }
+}
