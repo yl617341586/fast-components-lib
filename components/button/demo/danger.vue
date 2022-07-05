@@ -1,8 +1,15 @@
+<docs>
+---
+title:
+  zh-CN: 危险按钮
+  en-US: Danger Button
+content:
+  zh-CN: 危险
+  en-US: Danger
+---
+</docs>
 <template>
-  <Button>lew</Button>
-  <Button disabled>
-    lew-disabled
-  </Button>
+  <Button>danger</Button>
 </template>
 
 <script setup lang="ts">
@@ -16,5 +23,4 @@ import Button from '../index';
 </script>
 
 <style scoped lang="less">
-
 </style>

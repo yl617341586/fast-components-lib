@@ -1,8 +1,15 @@
+<docs>
+---
+title:
+  zh-CN: 按钮类型
+  en-US: Type
+content:
+  zh-CN: 按钮
+  en-US: button
+---
+</docs>
 <template>
-  <Button>lew</Button>
-  <Button disabled>
-    lew-disabled
-  </Button>
+  <Button>disabled</Button>
 </template>
 
 <script setup lang="ts">
@@ -16,5 +23,4 @@ import Button from '../index';
 </script>
 
 <style scoped lang="less">
-
 </style>

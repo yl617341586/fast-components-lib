@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Header from 'components/header/index.vue';
+import { Header } from '@/components';
 import { RouterView } from 'vue-router';
 </script>
 
