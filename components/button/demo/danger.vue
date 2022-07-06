@@ -22,5 +22,6 @@ content:
 import Button from '../index';
 </script>
 
-<style scoped lang="less">
+<style scoped lang="ts">
+
 </style>
