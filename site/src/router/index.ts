@@ -32,5 +32,6 @@ export default createRouter({
         },
       ],
     },
+    { path: '/index', redirect: { name: 'docs' } },
   ],
 });

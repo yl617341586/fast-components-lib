@@ -5,7 +5,7 @@
     </main>
     <section>
       <h4>
-        <a :href="href">  {{ title['zh-CN'] }}</a>
+        <a :href="href"> {{ title['zh-CN'] }}</a>
       </h4>
       <p>{{ content['zh-CN'] }}</p>
     </section>
@@ -22,16 +22,26 @@
  * @date: 2022/07/05 23:37:48
  * @description: 单个demo的容器，通过vite plugin注入到demo的源码中
  */
+import { inject, onMounted } from 'vue';
 type DemoInfo = {
   'zh-CN': string;
   'en-US': string
 }
-defineProps<{
+
+const props = defineProps<{
   title: DemoInfo;
   content: DemoInfo;
   code: string;
   href: string
 }>();
+const appendAnchors = inject('anchors', (anchors: { title: string; href: string; level: 3 }) => anchors);
+onMounted(() => {
+  appendAnchors({
+    title: props.title['zh-CN'],
+    href: props.href,
+    level: 3,
+  });
+});
 </script>
 
 <style scoped lang="less">

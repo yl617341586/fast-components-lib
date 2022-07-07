@@ -15,7 +15,3 @@ import Demo from '@/components/demo.vue';
 import Disabled from './disabled.vue';
 import Danger from './danger.vue';
 </script>
-
-<style scoped lang="ts">
-
-</style>
