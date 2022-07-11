@@ -11,13 +11,7 @@ export default (vue: string, path: string) => {
     .substring(process.cwd().length + 1, path.indexOf('.'))
     .replaceAll('/', '-')}`;
   const style = vue.match(RegStyle)?.[0].trim();
-  const script = `<script lang="ts">
-  export default {anchors:${JSON.stringify({
-    title: { CN: data.title['zh-CN'], US: data.title['en-US'] },
-    href,
-  })}}
-</script>
-<script setup lang="ts">
+  const script = `<script setup lang="ts">
   ${vue.match(RegScript)?.[0].trim()}
 import DemoContainer from '@/components/demo-container.vue';
 </script>`;

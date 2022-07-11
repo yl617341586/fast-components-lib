@@ -19,9 +19,11 @@ type DemoComponents = {
   US?: { docData?: Data }
 }
 const route = useRoute();
+const isDemo = computed(() => route.path.indexOf('/components') === 0 && route.path.indexOf('/components/overview') !== 0);
 const demoAnchors = ref<Data['anchors']>([]);
 const doc = computed(() => route.matched[route.matched.length - 1]?.components?.default as DemoComponents);
-const anchors = computed(() => [...demoAnchors.value, doc.value?.CN?.docData?.anchors.find(({ title }) => title === 'API') ?? []] as Data['anchors']);
+const anchors = computed(() => isDemo.value ? [...demoAnchors.value, doc.value?.CN?.docData?.anchors.find(({ title }) => title === 'API')].filter(Boolean) as Data['anchors'] : doc.value?.CN?.docData?.anchors ?? []);
+
 provide('anchors', (anchors: Data['anchors'][0]) => {
   if (!demoAnchors.value.some(({ href }) => href === anchors.href))
     demoAnchors.value.push(anchors);
@@ -30,7 +32,6 @@ provide('anchors', (anchors: Data['anchors'][0]) => {
 watch(
   () => route.path,
   () => {
-    console.log(doc.value);
     demoAnchors.value.length = 0;
   },
 );

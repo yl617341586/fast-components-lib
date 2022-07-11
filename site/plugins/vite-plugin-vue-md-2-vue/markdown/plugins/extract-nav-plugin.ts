@@ -5,15 +5,16 @@ export type AnchorInfo = {
   level: number;
 };
 export default (md: MarkdownIt, marks = ['h2', 'h3']) => {
-  const data: Array<AnchorInfo> = [];
   md.renderer.rules.heading_open = (tokens, i, options, _env, self) => {
     const token = tokens[i];
     if (marks.includes(token.tag)) {
+      const data: { anchors: Array<AnchorInfo> } = (md as any)._data ?? {};
       const title = tokens[i + 1].content;
       const id = token.attrs!.find(([name]) => name === 'id');
       const href = decodeURI(`#${id![1]}`);
       const level = Number(token.tag.match(/\d+/g)?.[0]);
-      data.push({
+      const anchors = data.anchors ?? (data.anchors = []);
+      anchors.push({
         title,
         href,
         level,
@@ -21,5 +22,4 @@ export default (md: MarkdownIt, marks = ['h2', 'h3']) => {
     }
     return self.renderToken(tokens, i, options);
   };
-  return data;
 };
