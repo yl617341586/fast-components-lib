@@ -27,6 +27,7 @@ import Menu from './menu.vue';
 .header {
   box-shadow: 0 2px 8px #f0f1f2;
   display: flex;
+  align-items: center;
 }
 
 .logo-img {

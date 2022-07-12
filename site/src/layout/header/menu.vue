@@ -1,8 +1,9 @@
 <template>
   <Navigation />
-  <Button @click="() => click('dark')">
+  <!-- <Button @click="() => click('dark')">
     {{ t('app-header-lang') }}
-  </Button>
+  </Button> -->
+  <Switch :checked="checkedState" @change="handleChangeTheme" />
 </template>
 
 <script setup lang="ts">
@@ -14,18 +15,20 @@
  */
 import Navigation from './navigation.vue';
 import { Button } from '../../../../components';
+import { Switch } from '@/components';
 import { useI18n } from 'vue-i18n';
+import { inject, ref } from 'vue';
 const { t } = useI18n<i18nOptions>();
-const handleChangeLange = () => {
-  console.log(location);
+const setTheme = inject('theme', (theme: 'dark' | 'light') => theme);
+const handleChangeTheme = (checked: boolean) => {
+  checkedState.value = checked;
+  setTheme(checked ? 'light' : 'dark');
   // location.href = `${location.protocol}//${location.hostname}`
 };
-const click = (type: string) => {
-  document.getElementsByTagName('html')[0].style.colorScheme = type;
-  document.getElementsByTagName('body')[0].setAttribute('data-theme', type);
-};
+
+const checkedState = ref<boolean>(localStorage.getItem('theme') !== 'dark');
+
 </script>
 
 <style scoped lang="less">
-
 </style>

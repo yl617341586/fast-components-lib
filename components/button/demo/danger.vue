@@ -19,7 +19,7 @@ content:
  * @date: 2022/06/14 23:26:48
  * @description: Button disabled属性
  */
-import Button from '../index';
+import Button from '../button.vue';
 </script>
 
 <style scoped lang="ts">

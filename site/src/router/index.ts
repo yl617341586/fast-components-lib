@@ -9,12 +9,12 @@ export default createRouter({
       path: '/components',
       name: 'components',
       redirect: { name: 'overview' },
-      component: () => import('../view/components.vue'),
+      component: () => import('../views/components.vue'),
       children: [
         {
           path: 'overview',
           name: 'overview',
-          component: () => import('../view/components-overview.vue'),
+          component: () => import('../views/components-overview.vue'),
         },
         ...demo,
       ],
@@ -22,7 +22,7 @@ export default createRouter({
     {
       path: '/docs',
       name: 'docs',
-      component: () => import('../view/docs.vue'),
+      component: () => import('../views/docs.vue'),
       redirect: { name: 'introduce' },
       children: [
         {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Header, Anchor } from '@/components';
+import { Header, Anchor } from '@/layout';
 import { RouterView, useRoute } from 'vue-router';
 import { computed, provide, ref, watch } from 'vue';
 type Data = {
@@ -18,6 +18,7 @@ type DemoComponents = {
   CN?: { docData?: Data }
   US?: { docData?: Data }
 }
+const theme = ref<string>(localStorage.getItem('theme') ?? 'light');
 const route = useRoute();
 const isDemo = computed(() => route.path.indexOf('/components') === 0 && route.path.indexOf('/components/overview') !== 0);
 const demoAnchors = ref<Data['anchors']>([]);
@@ -29,12 +30,22 @@ provide('anchors', (anchors: Data['anchors'][0]) => {
     demoAnchors.value.push(anchors);
 });
 
+provide('theme', (themeModel: 'dark' | 'light') => {
+  theme.value = themeModel;
+  localStorage.setItem('theme', themeModel);
+});
+
 watch(
   () => route.path,
   () => {
     demoAnchors.value.length = 0;
   },
 );
+watch(() => theme.value, theme => {
+  if (!theme) return;
+  document.getElementsByTagName('html')[0].style.colorScheme = theme;
+  document.getElementsByTagName('body')[0].setAttribute('data-theme', theme);
+}, { immediate: true });
 </script>
 
 <template>

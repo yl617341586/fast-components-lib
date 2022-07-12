@@ -13,7 +13,7 @@ export default (vue: string, path: string) => {
   const style = vue.match(RegStyle)?.[0].trim();
   const script = `<script setup lang="ts">
   ${vue.match(RegScript)?.[0].trim()}
-import DemoContainer from '@/components/demo-container.vue';
+import DemoContainer from '@/layout/demo-container.vue';
 </script>`;
   const title = JSON.stringify(data.title)?.replaceAll('"', "'");
   const content = JSON.stringify(data.content)?.replaceAll('"', "'");

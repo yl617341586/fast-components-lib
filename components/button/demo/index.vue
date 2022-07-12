@@ -11,7 +11,7 @@ export default { CN };
 </script>
 
 <script setup lang="ts">
-import Demo from '@/components/demo.vue';
+import Demo from '@/layout/demo.vue';
 import Disabled from './disabled.vue';
 import Danger from './danger.vue';
 </script>
